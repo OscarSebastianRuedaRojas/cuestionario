@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';  // Importar axios
 import Cuestionario from './components/Cuestionario';  // Asegúrate de que el nombre del archivo sea correcto
 import './App.css';  // Archivo CSS para el estilo de la página principal
 
@@ -11,9 +12,16 @@ const App = () => {
     };
 
     const handleResultSubmit = (data) => {
-        // Aquí podrías enviar los datos a la base de datos o hacer cualquier otra acción
-        console.log('Resultado enviado a la base de datos:', data);
-        setResultado(data);
+        fetch('https://cuestionariobackend-production.up.railway.app/api/cuestionario/guardar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => setResultado(data))
+        .catch(error => console.error('Error:', error));
     };
 
     return (
