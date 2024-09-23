@@ -20,6 +20,7 @@ const App = () => {
             body: JSON.stringify(data)
         })
         .then(response => {
+            console.log('Response:', response); // Imprime la respuesta
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -28,6 +29,7 @@ const App = () => {
         .then(data => setResultado(data))
         .catch(error => console.error('Error:', error));
     };
+    
     
 
     return (
