@@ -1,0 +1,160 @@
+body {
+    background-color: #e0f7fa;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.cuestionario-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    color: #00796b;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.selector-cuestionario p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #004d40;
+}
+
+.selector-cuestionario label {
+    margin-right: 20px;
+    font-size: 16px;
+    color: #00796b;
+}
+
+.nombre-input label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.nombre-input input {
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.explicacion {
+    background-color: #e0f2f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #004d40;
+    font-size: 16px;
+}
+
+.pregunta p {
+    font-size: 16px;
+    margin: 15px 0;
+    color: #004d40;
+}
+
+.pregunta label {
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.btn-enviar {
+    background-color: #00796b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+
+.btn-enviar:hover {
+    background-color: #004d40;
+}
+.cuestionario-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.cuestionario-container h1 {
+    color: #333;
+    text-align: center;
+}
+
+.explicacion {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-left: 4px solid #4CAF50;
+}
+
+.explicacion h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.explicacion ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.explicacion li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.explicacion strong {
+    color: #4CAF50;
+}
+
+.cuestionario-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.pregunta {
+    margin-bottom: 20px;
+}
+
+.pregunta p {
+    margin: 0;
+    font-weight: bold;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.btn-enviar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #45a049;
+}
