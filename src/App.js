@@ -19,10 +19,16 @@ const App = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => setResultado(data))
         .catch(error => console.error('Error:', error));
     };
+    
 
     return (
         <div className="app-container">
