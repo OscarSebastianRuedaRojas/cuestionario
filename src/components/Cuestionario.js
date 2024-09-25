@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Cuestionario.css';  // Archivo CSS para estilos
 
-// Preguntas de Pre-test
+// Preguntas de Pre-Test
 const preguntasPreTest = [
     { id: 1, texto: "¿Qué es una Sala ERA?", opciones: ["A: Espacio de atención para enfermedades respiratorias agudas.", "B: Área de consulta externa general.", "C: Unidad de cuidados intensivos."], correcta: "A" },
     { id: 2, texto: "¿Qué servicio se debe habilitar para la atención de urgencias?", opciones: ["A: Servicio de emergencias pediátricas.", "B: Servicio de urgencias generales.", "C: Consulta externa."], correcta: "B" },
@@ -15,7 +15,7 @@ const preguntasPreTest = [
     { id: 10, texto: "¿Qué deben evaluar los protocolos de manejo de IRA?", opciones: ["A: La satisfacción del paciente.", "B: La eficacia del tratamiento.", "C: El costo de los medicamentos."], correcta: "B" }
 ];
 
-// Preguntas de Post-test
+// Preguntas de Post-Test
 const preguntasPostTest = [
     { id: 1, texto: "¿Qué tipo de protocolo de manejo se recomienda implementar?", opciones: ["A: Protocolo basado en evidencia clínica.", "B: Protocolo administrativo.", "C: Protocolo para emergencias no respiratorias."], correcta: "A" },
     { id: 2, texto: "¿Qué es importante al capacitar al personal?", opciones: ["A: Actualizar los conocimientos del personal.", "B: Solo capacitar al nuevo personal.", "C: Capacitación cada 5 años."], correcta: "A" },
@@ -34,7 +34,7 @@ const Cuestionario = ({ tipoCuestionario, onResultSubmit }) => {
     const [respuestas, setRespuestas] = useState({});
     const [preguntaActual, setPreguntaActual] = useState(0);  // Control de la pregunta actual
 
-    const preguntas = tipoCuestionario === 'Pre-test' ? preguntasPreTest : preguntasPostTest;
+    const preguntas = tipoCuestionario === 'Pre-Test' ? preguntasPreTest : preguntasPostTest;
 
     // Manejar envío de resultados
     const handleSubmit = (event) => {
@@ -74,25 +74,27 @@ const Cuestionario = ({ tipoCuestionario, onResultSubmit }) => {
                 </label>
 
                 {/* Mostrar una pregunta a la vez */}
-                {preguntaActual < preguntas.length ? (
-                    <div key={preguntas[preguntaActual].id} className="pregunta">
-                        <p>{preguntas[preguntaActual].texto}</p>
-                        {preguntas[preguntaActual].opciones.map(opcion => (
-                            <label key={opcion}>
-                                <input
-                                    type="radio"
-                                    name={`pregunta-${preguntas[preguntaActual].id}`}
-                                    value={opcion}
-                                    onChange={() => handleRespuestaChange(preguntas[preguntaActual].id, opcion[0])}
-                                    required
-                                />
-                                {opcion}
-                            </label>
-                        ))}
-                        <button type="button" className="btn-enviar" onClick={handleNextQuestion}>
-                            Siguiente Pregunta
-                        </button>
-                    </div>
+                <div key={preguntas[preguntaActual].id} className="pregunta">
+                    <p>{preguntas[preguntaActual].texto}</p>
+                    {preguntas[preguntaActual].opciones.map(opcion => (
+                        <label key={opcion}>
+                            <input
+                                type="radio"
+                                name={`pregunta-${preguntas[preguntaActual].id}`}
+                                value={opcion}
+                                onChange={() => handleRespuestaChange(preguntas[preguntaActual].id, opcion)}
+                                required
+                            />
+                            {opcion}
+                        </label>
+                    ))}
+                </div>
+
+                {/* Mostrar botón de siguiente pregunta o de enviar cuestionario */}
+                {preguntaActual < preguntas.length - 1 ? (
+                    <button type="button" className="btn-enviar" onClick={handleNextQuestion}>
+                        Siguiente Pregunta
+                    </button>
                 ) : (
                     <button type="submit" className="btn-enviar">Enviar Cuestionario</button>
                 )}
