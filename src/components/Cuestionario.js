@@ -35,7 +35,7 @@ const Cuestionario = ({ tipoCuestionario, onResultSubmit }) => {
 
     // Manejar cambio de respuesta seleccionada
     const handleRespuestaChange = (id, value) => {
-        const esCorrecta = value === preguntas[preguntaActual].correcta;
+        const esCorrecta = value.charAt(0) === preguntas.find(p => p.id === id).correcta;
         setRespuestas({ ...respuestas, [id]: esCorrecta ? 'correcta' : 'incorrecta' });
     };
 
@@ -63,25 +63,27 @@ const Cuestionario = ({ tipoCuestionario, onResultSubmit }) => {
                 </label>
 
                 {/* Mostrar una pregunta a la vez */}
-                {preguntaActual < preguntas.length ? (
-                    <div key={preguntas[preguntaActual].id} className="pregunta">
-                        <p>{preguntas[preguntaActual].texto}</p>
-                        {preguntas[preguntaActual].opciones.map(opcion => (
-                            <label key={opcion}>
-                                <input
-                                    type="radio"
-                                    name={`pregunta-${preguntas[preguntaActual].id}`}
-                                    value={opcion}
-                                    onChange={() => handleRespuestaChange(preguntas[preguntaActual].id, opcion[0])}
-                                    required
-                                />
-                                {opcion}
-                            </label>
-                        ))}
-                        <button type="button" className="btn-enviar" onClick={handleNextQuestion}>
-                            Siguiente Pregunta
-                        </button>
-                    </div>
+                <div key={preguntas[preguntaActual].id} className="pregunta">
+                    <p>{preguntas[preguntaActual].texto}</p>
+                    {preguntas[preguntaActual].opciones.map(opcion => (
+                        <label key={opcion}>
+                            <input
+                                type="radio"
+                                name={`pregunta-${preguntas[preguntaActual].id}`}
+                                value={opcion}
+                                onChange={() => handleRespuestaChange(preguntas[preguntaActual].id, opcion)}
+                                required
+                            />
+                            {opcion}
+                        </label>
+                    ))}
+                </div>
+
+                {/* Mostrar botón de siguiente pregunta o de enviar cuestionario */}
+                {preguntaActual < preguntas.length - 1 ? (
+                    <button type="button" className="btn-enviar" onClick={handleNextQuestion}>
+                        Siguiente Pregunta
+                    </button>
                 ) : (
                     <button type="submit" className="btn-enviar">Enviar Cuestionario</button>
                 )}
