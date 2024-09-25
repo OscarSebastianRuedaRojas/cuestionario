@@ -37,8 +37,8 @@ const App = () => {
             {!tipoCuestionario ? (
                 <div className="seleccion-cuestionario">
                     <h1>Seleccione el tipo de cuestionario</h1>
-                    <button className="btn-seleccion" onClick={() => handleTipoSeleccion('Pre-Charla')}>Pre-Charla</button>
-                    <button className="btn-seleccion" onClick={() => handleTipoSeleccion('Post-Charla')}>Post-Charla</button>
+                    <button className="btn-seleccion" onClick={() => handleTipoSeleccion('Pre-Test')}>Pre-Test</button>
+                    <button className="btn-seleccion" onClick={() => handleTipoSeleccion('Post-Test')}>Post-Test</button>
                 </div>
             ) : (
                 <Cuestionario tipoCuestionario={tipoCuestionario} onResultSubmit={handleResultSubmit} />

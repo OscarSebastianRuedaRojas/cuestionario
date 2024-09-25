@@ -158,3 +158,36 @@ input[type="radio"] {
 .btn-enviar:hover {
     background-color: #45a049;
 }
+
+.cuestionario-container {
+    width: 100%; /* Ocupar el ancho completo de la pantalla */
+    padding: 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye padding en el cálculo de ancho */
+}
+
+
+
+.pregunta {
+    margin-bottom: 20px; /* Espaciado entre preguntas */
+}
+
+.pregunta label {
+    display: block; /* Mostrar opciones en bloques verticales */
+    margin-bottom: 10px; /* Espaciado entre opciones */
+}
+
+.btn-enviar {
+    display: block; /* Hacer que los botones ocupen toda la línea */
+    margin: 10px 0; /* Espaciado entre botones */
+    width: 100%; /* Ocupar el ancho completo */
+    padding: 10px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .pregunta label {
+        font-size: 16px; /* Ajustar el tamaño de la fuente si es necesario */
+    }
+}
+
